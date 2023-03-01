@@ -1,14 +1,27 @@
 package com.cg.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-public class Customer {
 
+@Entity
+@Table(name = "customers")
+public class Customer extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "full_name", nullable = false)
     private String fullName;
+
+    @Column(nullable = false)
     private String email;
+
     private String phone;
     private String address;
+
+    @Column(precision = 10, scale = 0, nullable = false)
     private BigDecimal balance;
 
     public Customer() {
