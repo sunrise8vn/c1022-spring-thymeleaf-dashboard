@@ -55,6 +55,15 @@
                 </div>
                 <!-- partial:partials/_footer.html -->
 
+                <th:block th:if="${errors == true}">
+                    <div class="alert-danger">
+                        <h5>Please correct errors below:</h5>
+                        <ul>
+                            <li class="label-error" th:each="err : ${#fields.errors('customer.*')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </th:block>
+
                 <th:block th:replace="layout/footer" />
                 <!-- partial -->
             </div>
